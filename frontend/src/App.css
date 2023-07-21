@@ -1,0 +1,347 @@
+/* src/App.css */
+.App {
+    text-align: center;
+}
+
+.App-logo {
+    height: 40vmin;
+    pointer-events: none;
+    animation: App-logo-spin infinite 20s linear;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Styles for the "Add Task" button */
+.add-task-btn {
+    background-color: #ff7a71;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Hover styles for the "Add Task" button */
+.add-task-btn:hover {
+    background-color: #a4584ca1 !important;
+    color: white;
+    /* Change the background color when hovered over */
+}
+
+
+.App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.App-link {
+    color: #61dafb;
+}
+
+@media (max-width: 768px) {
+    /* Apply styles when the screen width is 768px or less (e.g., on mobile devices) */
+
+    .App-header {
+        padding-top: 80px;
+        /* Add more top padding to create space for the form */
+    }
+
+    .ant-timeline {
+        margin-bottom: 20px;
+        /* Add some margin to separate the timeline and form */
+    }
+}
+
+/* Styles for the date pickers container to align them in one line */
+.date-pickers .date-picker {
+    width: 90%;
+    height: 75%;
+}
+
+.date-pickers {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    nav-index: inherit;
+}
+
+/* Styles for the date picker input fields */
+.date-picker {
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    color: rgba(87, 97, 97, 0.768);
+    box-shadow: #61dafb;
+}
+
+
+.date-picker:hover {
+    content: "Select a date";
+    /* Hint text */
+    /* position: absolute; */
+    /* bottom: -25px; */
+    /* Adjust the position of the hint as needed */
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
+    background-color: #fff;
+    /* padding: 4px 8px; */
+    /* border-radius: 4px; */
+    /* font-size: 10px; */
+    color: #333 !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.45);
+}
+
+/* Example styles for the date picker calendar dropdown */
+/* .date-picker .react-datepicker {
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+} */
+
+
+
+/* Styles for the app container */
+.app-container {
+    flex-wrap: wrap;
+}
+
+/* Styles for the timeline and form containers .timeline-container, */
+.form-container {
+    flex: 1 1 50%;
+    min-width: 300px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Media query to stack the timeline and form containers on top of each other for small screens */
+@media screen and (max-width: 768px) {
+
+    .timeline-container,
+    .form-container {
+        flex-basis: 100%;
+    }
+}
+
+/* Additional styles for responsiveness */
+@media screen and (max-width: 1024px) {
+
+    .timeline-container,
+    .form-container {
+        flex-basis: 100%;
+    }
+}
+
+.app-container .form-container {
+    height: 10%;
+    width: auto;
+}
+
+/* GIRLISH THEME */
+
+/* Colorful Gradient Background */
+.app-container {
+    background-image: linear-gradient(135deg, #ff9a8b, #b76bff);
+    min-height: 100vh;
+    padding: 40px;
+}
+
+/* Timeline Box */
+.timeline-box {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+/* Form Box */
+.form-box {
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Add Task Button */
+.add-task-btn {
+    background-color: #ff7a71;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+
+/* BOYISH THEME */
+
+/* Colorful Gradient Background */
+.app-container {
+    background-image: linear-gradient(135deg, #5b8266, #b3a04e);
+    min-height: 100vh;
+    padding: 40px;
+}
+
+/* Timeline Box */
+.timeline-box {
+    background-color: #e2f3df;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+/* Form Box */
+.form-box {
+    background-color: #e2e2d6;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Form Input */
+.form-input {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+}
+
+/* Add Task Button */
+.add-task-btn {
+    background-color: #d6a957;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Theme Toggle Button */
+.theme-toggle button {
+    background-color: #d6a957;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    /* Responsive styles */
+    max-width: 300px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.app-container.boy-theme .theme-toggle button {
+    background-color: #d6a957;
+}
+
+/* Timeline Item */
+.timeline-box.boy-theme .ant-timeline-item {
+    background-color: #e2f3df;
+}
+
+/* Add any additional styles you need for your app above this line */
+
+/* GIRLISH THEME */
+
+/* Colorful Gradient Background */
+.app-container.girl-theme {
+    background-image: linear-gradient(135deg, #ff9a8b, #b76bff);
+}
+
+/* Timeline Box */
+.timeline-box.girl-theme {
+    background-color: #ede3e2;
+}
+
+/* Form Box */
+.form-box.girl-theme {
+    background-color: #ede3e2;
+}
+
+/* Add Task Button */
+.add-task-btn.girl-theme {
+    background-color: #ff7a71;
+}
+
+/* BOYISH THEME */
+
+/* Colorful Gradient Background */
+.app-container.boy-theme {
+    background-image: linear-gradient(135deg, #5b8266, #b3a04e);
+}
+
+/* Timeline Box */
+.timeline-box.boy-theme {
+    background-color: #e2f3df;
+}
+
+/* Form Box */
+.form-box.boy-theme {
+    background-color: #e2e2d6;
+}
+
+/* Add Task Button */
+.add-task-btn.boy-theme {
+    background-color: #d6a957;
+}
+
+/* Theme Toggle Button */
+.theme-toggle button {
+    background-color: #ff7a71;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    /* Responsive styles */
+    max-width: 300px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.app-container.girl-theme.theme-toggle.button {
+    background-color: #ede3e2;
+}
+
+
+/* Timeline Item */
+.timeline-box.girl-theme.ant-timeline-item {
+    background-color: #ede3e2;
+}
+
+.ant-timeline-item.girl-theme.ant-timeline-item-left,
+.ant-timeline-item.girl-theme.ant-timeline-item-right {
+    background-color: #ede3e2;
+}
+
+.ant-timeline.ant-timeline-alternate.timeline-box.girl-theme {
+    background-color: #ede3e2;
+}
+
+.ant-timeline-item-head.ant-timeline-item-head-custom.ant-timeline-item-head-blue {
+    background-color: inherit;
+}
+
+.anticon.anticon-minus-circle {
+    color: rgb(128, 105, 63);
+}

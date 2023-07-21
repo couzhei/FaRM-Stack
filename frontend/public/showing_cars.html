@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block style %}
+            <style>
+            /* Styling for pagination */
+            .pagination-container {
+                display: flex;
+                justify-content: center; /* Center horizontally */
+                margin-top: 20px;
+            }
+    
+            .pagination {
+                list-style: none;
+                padding: 0;
+                display: flex; /* Display links inline */
+                justify-content: center; /* Center links horizontally */
+                align-items: center; /* Align links vertically */
+            }
+    
+            .pagination li {
+                margin-right: 5px;
+            }
+    
+            .pagination li.active a {
+            background-color:khaki; /* Slightly darker blue for active page */
+            color:#3c4d11;
+            }
+
+            .pagination a {
+                text-decoration: none;
+                padding: 8px;
+                border: 1px solid #91ba38; /* Darker blue for pagination background */
+                border-radius: 50%; /* Circular shape */
+                background-color: #3c4d11; /* Darker blue background */
+                color: rgb(213, 221, 54); /* White font color */
+            }
+    
+    
+            /* Styling for the table */
+            table {
+                border-collapse: collapse;
+                width: 100%;
+                background-color: khaki;
+            }
+    
+            th {
+                background-color: #556b2f; /* Military-like green */
+                color: white;
+                padding: 8px;
+                text-align: left;
+            }
+    
+            td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: right; /* Right-aligned values */
+            }
+    
+            /* Styling for the pagination and total number display */
+            div.pagination-container {
+                margin-top: 20px;
+                display: flex;
+                align-items: center;
+            }
+    
+            p.total-cars {
+                margin-right: 20px;
+                font-weight: bold;
+                color: #fff; /* White font color */
+            }
+    
+            /* Dark grey background for the whole page */
+            body {
+                background-color: #333;
+            }
+            </style>
+        {% endblock style %}
+    </head>
+    <body>
+        {% block content %}
+            <table>
+                <thead>
+                    <tr>
+                        {% for field, label in cars[0].items() %}
+                            <th>
+                                {{ field }}
+                            </th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for car in cars %}
+                        <tr>
+                            {% for field in car.keys() %}
+                                <td>
+                                    {{ car[field] }}
+                                </td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <!-- Add the navigation links for previous and next pages -->
+            <div>
+                <p class="total-cars">
+                    Total Cars: {{ pagination.total_items }}
+                </p>
+                <ul class="pagination">
+                    {% if pagination.current_page != 1 %}
+                        <li>
+                            <a href="?page=1">First</a>
+                        </li>
+                        <li>
+                            <a href="?page={{ pagination.current_page - 1 }}">Previous</a>
+                        </li>
+                    {% endif %}
+                    {% if pagination.current_page - 3 >= 0 %}
+                        {% set start_index = pagination.current_page - 3 %}
+                    {% else %}
+                        {% set start_index = 1 %}
+                    {% endif %}
+                    {% if pagination.current_page + 3 <= pagination.total_pages %}
+                        {% set end_index = pagination.current_page + 3 %}
+                    {% else %}
+                        {% set end_index = pagination.total_pages %}
+                    {% endif %}
+                    {% for page_num in range(start_index, end_index + 1) %}
+                        <li {% if page_num == pagination.current_page %}class="active"{% endif %}>
+                            <a href="?page={{ page_num }}">{{ page_num }}</a>
+                        </li>
+                    {% endfor %}
+                    {% if pagination.current_page != pagination.total_pages %}
+                        <li>
+                            <a href="?page={{ pagination.current_page + 1 }}">Next</a>
+                        </li>
+                        <li>
+                            <a href="?page={{ pagination.total_pages }}">Last</a>
+                        </li>
+                    {% endif %}
+                </ul>
+                <!--
+             <ul class="pagination">
+                {% for page_num in range(1, pagination.total_pages + 1) %}
+                    {% if page_num == pagination.current_page %}
+                        <li>
+                            <strong>{{ page_num }}</strong>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="?page={{ page_num }}">{{ page_num }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+</ul> -->
+                <!-- {% if pagination.current_page > 1 %}
+                <a href="?page={{ pagination.current_page - 1 }}">Previous</a>
+            {% endif %}
+            {% if pagination.current_page < pagination.total_pages %}
+                <a href="?page={{ pagination.current_page + 1 }}">Next</a>
+            {% endif %}  -->
+            </div>
+        {% endblock content %}
+    </body>
+</html>
